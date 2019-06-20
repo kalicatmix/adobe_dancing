@@ -13,7 +13,7 @@ see mit licenses
 */
 #include <curses.h>
 #define START_WITH_COLOR_SHOW start_color()
-#define BEGIN_WITH_COLOR_SHOW(bg_color, fg_color) \
-        init_pair(1, bg_color, fg_color);         \
+#define BEGIN_WITH_COLOR_SHOW(fg_color, bg_color) \
+        init_pair(1, fg_color, bg_color);         \
         attron(COLOR_PAIR(1))
 #define END_COLOR_SHOW attroff(COLOR_PAIR(1))

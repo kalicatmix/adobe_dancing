@@ -13,9 +13,9 @@ void dispatch_adobe_dancing(int options[]){
 }
 
 void dancing_with_color(int element){
-printf("dancing with color");
+   play(element,1);
 }
 
 void dancing_without_color(int element){
- printf("dancing without color");
+   play(element,0);
 }

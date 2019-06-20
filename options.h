@@ -24,19 +24,16 @@ show:             show what \n \
  ps  Photoshop \n\
  pr  Premiere\n"
 
-static char *elems[] = {
-    "ae", "ad", "fl", "ai",
-    "id", "ps", "pr"};
-
-enum OPTIONS
-{
+extern char *elems[];
+#ifndef ADOBE_DANCING
+#define ADOBE_DANCING 1.0
+enum OPTIONS{
    DISABLE_COLOR,
    ENABLE_COLOR,
    HELP,
    SHOW
 };
-enum ELEMENTS
-{
+enum ELEMENTS{
    AfterEffects = 0,
    Audition = 1,
    Flash = 2,
@@ -45,6 +42,7 @@ enum ELEMENTS
    PhotoShop = 5,
    Premiere = 6
 };
+#endif
 void show_usage();
 int parse_option(char *arg);
 void parse_options(int arg, char *args[], int options[]);

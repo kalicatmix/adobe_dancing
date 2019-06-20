@@ -1,4 +1,7 @@
 #include "options.h"
+char* elems[]= {
+    "ae", "ad", "fl", "ai",
+    "id", "ps", "pr"};  
 
 void show_usage()
 {
@@ -59,16 +62,24 @@ void parse_options(int arg, char *args[], int options[])
                 break;
             case SHOW:
                 if (i + 1 < arg)
-                {
+                {   
                     options[1] = parse_element(args[i + 1]);
+                    if(options[i]==-1)
+                    {
+                        printf("bad argument\n");
+                        exit(0);
+                    }
                     i++;
                 }
                 else
                 {
-                    printf("%s", "bad argument\n");
+                    printf("bad argument\n");
                     exit(0);
                 }
                 break;
+            default:
+            printf("bad argument\n");
+            exit(0);
             }
         }
     }
@@ -90,5 +101,5 @@ int parse_element(char *arg)
                 return i;
         }
     }
-    return 0;
+    return -1;
 }
