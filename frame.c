@@ -58,11 +58,25 @@ void dance(int element, int colorful)
   }
   if(colorful){START_WITH_COLOR_SHOW;BEGIN_WITH_COLOR_SHOW(fg,bg);}
   PREPARE_FRAME;
-  int x, y, z = strlen(START_SHOW_ICON[0]);
+  int x, y, z = strlen(elem[0]);
   getmaxyx(stdscr, y, x);
+  
+  //transform one show line one by one
   for(int i=0;i<ELEMENT_ROW;i++)
-  mvprintw(i,0,"%s",elem[i]);
-  refresh();
+  {
+    mvprintw((y-ELEMENT_ROW)/2+i,(x-z)/2,"%s",elem[i]);
+    refresh();
+    sleep(1);
+  }
+  clear();
+  //transform two 
+  for(int i=ELEMENT_ROW-1;i>=0;i--){
+    mvprintw((y-ELEMENT_ROW)/2+i,(x-z)/2,"%s",elem[ELEMENT_ROW-i-1]);
+    refresh();
+    sleep(1);
+  }
+  clear();
+
   sleep(5);
   if(colorful)END_COLOR_SHOW;
   clear();
