@@ -11,7 +11,7 @@
 ` show           show element   `
 
 ## dowload
-you build from source
+you can  build from source
 
 `cd $(sourc_dir) && make` 
 
